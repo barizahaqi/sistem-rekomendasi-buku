@@ -19,8 +19,7 @@ Tujuan dari proyek ini adalah:
 Dataset yang digunakan pada proyek ini adalah [*goodbooks-10k*](https://www.kaggle.com/datasets/zygmunt/goodbooks-10k).
 Pada Dataset ini terdapat 5 berkas csv dan hanya ada dua berkas yang akan dipakai yaitu `books.csv` dan `ratings.csv` 
 
-Pada berkas `books.csv` memuat data identitas buku yang terdiri dari 10000 baris dan memiliki 23 kolom, diantaranya adalah :  
-
+Pada berkas `books.csv` memuat data identitas buku yang terdiri dari 10000 baris dan memiliki 23 kolom, 6 diantaranya adalah :  
 - `book_id	` : id buku 
 - `title` : judul buku
 - `authors` : penulis buku
@@ -69,9 +68,9 @@ Variabel ratings di atas akan menjadi data utama dalam membuat sistem rekomendas
 - **Data Splitting** :  Pada tahap ini data dibagi menjadi 80% data train untuk dilatih dan 20% data validasi untuk validasi data
 
 ## Modeling
-Pada tahap ini akan dilakukan proses embedding terhadap data user dan book. Kemudian dilakukan lakukan operasi perkalian dot product antara embedding user dan resto. Skor kecocokan ditetapkan dalam skala [0,1] dengan fungsi aktivasi sigmoid.
+Pada tahap ini akan dilakukan proses *embedding* terhadap data user dan book. Kemudian dilakukan lakukan operasi perkalian *dot product* antara *embedding* user dan resto. Skor kecocokan ditetapkan dalam skala [0,1] dengan fungsi aktivasi *sigmoid*.
 
-Model dibuat keras Model *class* untuk collaborative filtering. Parameter yang digunakan pada model ini adalah Binary Crossentropy untuk loss function, Adam dengan learning_rate 0.001 untuk optimizernya dan root mean squared error(RMSE) sebagai metrik evaluasinya
+Model dibuat keras Model *class* untuk *Collaborative Filtering*. Parameter yang digunakan pada model ini adalah *Binary Crossentropy* untuk *loss function*, Adam dengan *learning_rate* 0.001 untuk optimizernya dan *Root Nean Squared Error* (RMSE) sebagai metrik evaluasinya.
 
 Model dapat menghasil top 10 rekomendasi buku yang diperlihatkan pada Gambar 1
 
@@ -80,11 +79,11 @@ Model dapat menghasil top 10 rekomendasi buku yang diperlihatkan pada Gambar 1
 Gambar 1. Top rekomendasi buku yang dihasilkan
 
 ## Evaluation
-Metrik evaluasi yang digunakan adalah Root Mean Square Error(RMSE) dimana semakin kecil nilai RMSE nya maka semakin dekat nilai yang diprediksi dan diamati.
+Metrik evaluasi yang digunakan adalah *Root Mean Square Error (RMSE) dimana semakin kecil nilai RMSE nya maka semakin dekat nilai yang diprediksi dan diamati.
 Plot hasil proses training model diperlihatkan pada Gambar 2
 
 ![alt text](/img/plot_model.png) 
 
 Gambar2. Plot hasil training
 
-Pada plot di atas, model yang dihasilkan cukup mulus dan konvergen. Dari proses ini, nilai error akhir yang dihasilkan sekitar 0.17 dan error validasi sebesar 0.23. Hal ini membuktikan bahwa model memiliki performasi bagus untuk sebuah sistem rekomendasi
+Pada plot di atas, model yang dihasilkan cukup mulus dan konvergen. Dari proses ini, nilai error akhir yang dihasilkan sekitar 0.17 dan error validasi sebesar 0.23. Hal ini membuktikan bahwa model memiliki performasi bagus untuk sebuah sistem rekomendasi.
