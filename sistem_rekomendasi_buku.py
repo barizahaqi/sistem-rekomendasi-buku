@@ -157,9 +157,8 @@ x_train, x_val, y_train, y_val = (
     y[:train_indices],
     y[train_indices:]
 )
- 
-print(x)
-print(y)
+print("jumlah data train: " + str(len(x_train)))
+print("jumlah data validasi: " + str(len(x_val)))
 
 """variabel x merupakan kumpulan data integer yang merepresentasikan buku dan varibel y merupakan kumpulan data hasil rating dimana nilai 0 yang berarti minimum dan nilai 1 yang berarti maksimum"""
 

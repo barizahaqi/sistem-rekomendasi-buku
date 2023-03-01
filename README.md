@@ -70,14 +70,14 @@ Variabel ratings di atas akan menjadi data utama dalam membuat sistem rekomendas
 - **Data Splitting** :  Pada tahap ini data dibagi menjadi 80% data train untuk dilatih dan 20% data validasi untuk validasi data. Dari proses ini didapat dapat data training sebanyak 63666 baris dan data validasi sebanyak 15917 baris.
 
 ## Modeling
-Pada tahap ini akan dilakukan proses *embedding* terhadap data user dan book. Kemudian dilakukan lakukan operasi perkalian *dot product* antara *embedding* user dan resto. Skor kecocokan ditetapkan dalam skala [0,1] dengan fungsi aktivasi *sigmoid*.
+Pada tahap ini akan dilakukan proses *embedding* terhadap data user dan book. Kemudian dilakukan lakukan operasi perkalian *dot product* antara *embedding* user dan buku. Skor kecocokan ditetapkan dalam skala [0,1] dengan fungsi aktivasi *sigmoid*.
 
 Model dibuat keras Model *class* untuk *Collaborative Filtering*. Parameter yang digunakan pada model ini adalah: 
 - *Binary Crossentropy* yaitu fungsi entropi untuk mengukur perbedaan antara dua distribusi probabilitas pada variabel acak tertentu dan digunakan pada masalah klasifikasi biner. Parameter ini digunakan untuk *loss function*.
 - Adam yaitu sebuah algoritma yang menggunakan metode stochastic gradient descent untuk *optimizer* model. Tingkat pembelajaran yang dipilih adalah 0.001. 
 - *Root Mean Squared Error* (RMSE) yaitu fungsi standar deviasi untuk memprediksi error dengan mengukur seberapa jauh titik data terhadap garis regresi. Parameter ini digunakan sebagai metrik evaluasinya.
 
-Model dapat menghasil top 10 rekomendasi buku yang diperlihatkan pada Gambar 1
+Model dapat menghasilkan top 10 rekomendasi buku yang diperlihatkan pada Gambar 1
 
 ![output](https://user-images.githubusercontent.com/82996403/222066997-193cf9a9-fbbe-4227-aef1-39368fa7d6ad.png)
 
