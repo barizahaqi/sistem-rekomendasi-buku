@@ -1,5 +1,3 @@
-
-
 # Laporan Proyek Machine Learning - Bariza Haqi
 
 ## Project Overview
@@ -77,18 +75,30 @@ Model dibuat keras Model *class* untuk *Collaborative Filtering*. Parameter yang
 - Adam yaitu sebuah algoritma yang menggunakan metode stochastic gradient descent untuk *optimizer* model. Tingkat pembelajaran yang dipilih adalah 0.001. 
 - *Root Mean Squared Error* (RMSE) yaitu fungsi standar deviasi untuk memprediksi error dengan mengukur seberapa jauh titik data terhadap garis regresi. Parameter ini digunakan sebagai metrik evaluasinya.
 
-Model dapat menghasilkan top 10 rekomendasi buku yang diperlihatkan pada Gambar 1
+Model dapat menghasilkan top 10 rekomendasi buku yang diperlihatkan pada Tabel 3
 
-![output](https://user-images.githubusercontent.com/82996403/222066997-193cf9a9-fbbe-4227-aef1-39368fa7d6ad.png)
+Tabel 3. 10 rekomendasi buku
 
-Gambar 1. Top rekomendasi buku yang dihasilkan
+| Top 10 Book recommendation                                |
+|-----------------------------------------------------------|
+| Girl with a Pearl Earring                                 | 
+| Franny and Zooey                                          | 
+| The War of the Worlds                                     |
+| A People's History of the United States                   |
+| Still Life with Woodpecker                                | 
+| Memories of My Melancholy Whores                          | 
+| Hard Times                                                | 
+| Amsterdam                                                 |
+| Tears of the Giraffe (No. 1 Ladies' Detective Agency, #2) |
+| Villa Incognito                                           | 
 
 ## Evaluation
 Metrik evaluasi yang digunakan adalah *Root Mean Square Error* (RMSE) dimana semakin kecil nilai RMSE nya maka semakin dekat nilai yang diprediksi dan diamati.
-Plot hasil proses training model diperlihatkan pada Gambar 2
+Plot hasil proses training model diperlihatkan pada Gambar 1
 
 ![plot_model](https://user-images.githubusercontent.com/82996403/222067010-2a8155e8-1369-4246-9177-68d9aa245cb0.png)
 
-Gambar 2. Plot hasil training
+Gambar 1. Plot hasil training
 
-Pada plot di atas, model yang dihasilkan cukup mulus dan konvergen . Model ini juga dapat dikatakan goodfit karena baik nilai error akurasi dan validasi memiliki nilai yang rendah. Dari proses ini, nilai error akhir yang dihasilkan sekitar 0.17 dan error validasi sebesar 0.23. Hal ini membuktikan bahwa model memiliki performasi bagus untuk sebuah sistem rekomendasi.
+Dari plot di atas dapat dikatakan model ini goodfit. Model dikatakan goodfit ketika  nilai RMSE training tidak terlalu jauh dengan nilai RMSE validasi atau dapat dikatakan sama-sama memiliki nilai yang rendah, underfit ketika nilai RMSE training memiliki nilai yang lebih tinggi dibandingkan dengan nilai RMSE validasi dan overfit ketika nilai RMSE validasi memiliki nilai yang jauh lebih tinggi dibandingkan dengan nilai RMSE training.
+Dari proses ini, nilai error akhir yang dihasilkan sekitar 0.17 dan error validasi sebesar 0.23. Hal ini membuktikan bahwa model memiliki performasi bagus untuk sebuah sistem rekomendasi.
