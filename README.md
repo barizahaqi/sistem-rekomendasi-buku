@@ -1,3 +1,5 @@
+
+
 # Laporan Proyek Machine Learning - Bariza Haqi
 
 ## Project Overview
@@ -62,19 +64,22 @@ Tabel 2. Lima sampel teratas pada dataset *ratings*
 Variabel ratings di atas akan menjadi data utama dalam membuat sistem rekomendasi dengan Collaborative Filtering pada proyek ini.
 
 ## Data Preparation
-- **Encoding** :  Pada tahap ini setiap  data book_id dan user_id akan akan disandikan atau diubah ke dalam indeks integer yang berurutan sampai jumlah data yang ada
-- **Randomize Dataset** : Pada tahap ini dataset akan diacak agar distribusinya menjadi random
-- **Data Standardization** : Pada tahap ini kolom rating akan dibuat dalam skala 0 dan 1 dimana 0 merupakan minimum dan 1 adalah maksimum agar mudah dalam melakukan proses training
-- **Data Splitting** :  Pada tahap ini data dibagi menjadi 80% data train untuk dilatih dan 20% data validasi untuk validasi data
+- **Encoding** :  Pada tahap ini setiap  data book_id dan user_id akan akan disandikan atau diubah ke dalam indeks integer yang berurutan sampai jumlah data yang ada. Dari proses ini didapat variabel book yang berisi integer dari 0 sampai 811 dan variabel user yang berisi integer dari 0 sampai 79582.
+- **Randomize Dataset** : Pada tahap ini dataset akan diacak agar distribusinya menjadi random. Dari proses ini didapat variabel ratings yang telah diacak.
+- **Data Standardization** : Pada tahap ini kolom rating akan dibuat dalam skala 0 dan 1 dimana 0 merupakan minimum dan 1 adalah maksimum agar mudah dalam melakukan proses training. Dari proses ini didapat variabel rating dimana skala kolom rating yang asalnya 1-5 menjadi 0-1.
+- **Data Splitting** :  Pada tahap ini data dibagi menjadi 80% data train untuk dilatih dan 20% data validasi untuk validasi data. Dari proses ini didapat dapat data training sebanyak 63666 baris dan data validasi sebanyak 15917 baris.
 
 ## Modeling
 Pada tahap ini akan dilakukan proses *embedding* terhadap data user dan book. Kemudian dilakukan lakukan operasi perkalian *dot product* antara *embedding* user dan resto. Skor kecocokan ditetapkan dalam skala [0,1] dengan fungsi aktivasi *sigmoid*.
 
-Model dibuat keras Model *class* untuk *Collaborative Filtering*. Parameter yang digunakan pada model ini adalah *Binary Crossentropy* untuk *loss function*, Adam dengan *learning_rate* 0.001 untuk optimizernya dan *Root Nean Squared Error* (RMSE) sebagai metrik evaluasinya.
+Model dibuat keras Model *class* untuk *Collaborative Filtering*. Parameter yang digunakan pada model ini adalah: 
+- *Binary Crossentropy* yaitu fungsi entropi untuk mengukur perbedaan antara dua distribusi probabilitas pada variabel acak tertentu dan digunakan pada masalah klasifikasi biner. Parameter ini digunakan untuk *loss function*.
+- Adam yaitu sebuah algoritma yang menggunakan metode stochastic gradient descent untuk *optimizer* model. Tingkat pembelajaran yang dipilih adalah 0.001. 
+- *Root Mean Squared Error* (RMSE) yaitu fungsi standar deviasi untuk memprediksi error dengan mengukur seberapa jauh titik data terhadap garis regresi. Parameter ini digunakan sebagai metrik evaluasinya.
 
 Model dapat menghasil top 10 rekomendasi buku yang diperlihatkan pada Gambar 1
 
-![alt text](/img/output.png) 
+![output](https://user-images.githubusercontent.com/82996403/222066997-193cf9a9-fbbe-4227-aef1-39368fa7d6ad.png)
 
 Gambar 1. Top rekomendasi buku yang dihasilkan
 
@@ -82,8 +87,8 @@ Gambar 1. Top rekomendasi buku yang dihasilkan
 Metrik evaluasi yang digunakan adalah *Root Mean Square Error* (RMSE) dimana semakin kecil nilai RMSE nya maka semakin dekat nilai yang diprediksi dan diamati.
 Plot hasil proses training model diperlihatkan pada Gambar 2
 
-![alt text](/img/plot_model.png) 
+![plot_model](https://user-images.githubusercontent.com/82996403/222067010-2a8155e8-1369-4246-9177-68d9aa245cb0.png)
 
 Gambar 2. Plot hasil training
 
-Pada plot di atas, model yang dihasilkan cukup mulus dan konvergen. Dari proses ini, nilai error akhir yang dihasilkan sekitar 0.17 dan error validasi sebesar 0.23. Hal ini membuktikan bahwa model memiliki performasi bagus untuk sebuah sistem rekomendasi.
+Pada plot di atas, model yang dihasilkan cukup mulus dan konvergen . Model ini juga dapat dikatakan goodfit karena baik nilai error akurasi dan validasi memiliki nilai yang rendah. Dari proses ini, nilai error akhir yang dihasilkan sekitar 0.17 dan error validasi sebesar 0.23. Hal ini membuktikan bahwa model memiliki performasi bagus untuk sebuah sistem rekomendasi.
